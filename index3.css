@@ -312,3 +312,54 @@ body {
     .stat h3 { font-size: 9px; }
     .stat p { font-size: 20px; }
 }
+
+
+/* ===== Mobile viewport/background fix ===== */
+@media (max-width: 768px) {
+    html {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    body {
+        width: 100%;
+        min-height: 100vh;
+        min-height: 100svh;
+        margin: 0;
+        overflow-x: hidden;
+        position: relative;
+        isolation: isolate;
+        background: var(--navy) !important;
+    }
+
+    /* Keep the mobile wallpaper tied to the phone screen,
+       not stretched to the full height of the page content. */
+    body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+        background-image:
+            linear-gradient(145deg, rgba(4,19,39,.48), rgba(7,29,56,.28)),
+            url("bam.png");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+    }
+
+    .main-content,
+    .team-container,
+    .league-table {
+        max-width: 100%;
+    }
+}
+
+/* Tables stay readable on narrow phones and scroll inside their panel. */
+@media (max-width: 768px) {
+    .league-table {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior-x: contain;
+    }
+}
