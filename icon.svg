@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 650" role="img" aria-labelledby="title desc">
+  <title id="title">EZZ STEEL Football Championship</title>
+  <desc id="desc">Navy and gold football championship shield with a crown and soccer ball.</desc>
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF0A6"/><stop offset=".35" stop-color="#D4AF37"/><stop offset=".7" stop-color="#F5C84C"/><stop offset="1" stop-color="#9A6B08"/></linearGradient>
+    <linearGradient id="navy" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#102D50"/><stop offset="1" stop-color="#041326"/></linearGradient>
+    <linearGradient id="silver" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFFFFF"/><stop offset="1" stop-color="#AEB8C5"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%"><feGaussianBlur in="SourceAlpha" stdDeviation="5"/><feOffset dy="5"/><feComponentTransfer><feFuncA type="linear" slope=".45"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <g filter="url(#shadow)" stroke-linejoin="round">
+    <!-- Shield -->
+    <path d="M300 142 L520 222 L500 445 Q470 540 300 615 Q130 540 100 445 L80 222 Z" fill="url(#navy)" stroke="url(#gold)" stroke-width="13"/>
+    <path d="M300 160 L500 234 L482 436 Q455 515 300 584 Q145 515 118 436 L100 234 Z" fill="none" stroke="#D4AF37" stroke-width="4"/>
+    <!-- Crown -->
+    <path d="M178 148 L154 76 L220 117 L300 42 L380 117 L446 76 L422 148 Q300 185 178 148Z" fill="url(#gold)" stroke="#6F4B06" stroke-width="7"/>
+    <path d="M176 145 Q300 177 424 145" fill="none" stroke="#FFF0A6" stroke-width="5"/>
+    <g fill="url(#gold)" stroke="#7B560A" stroke-width="4"><circle cx="154" cy="75" r="12"/><circle cx="220" cy="116" r="12"/><circle cx="300" cy="42" r="14"/><circle cx="380" cy="116" r="12"/><circle cx="446" cy="75" r="12"/></g>
+    <!-- Ball -->
+    <circle cx="300" cy="260" r="112" fill="url(#silver)" stroke="#06172B" stroke-width="13"/>
+    <path d="M300 205 L342 235 L326 283 L274 283 L258 235Z" fill="#07182D" stroke="#07182D" stroke-width="5"/>
+    <path d="M300 205 L300 149 M342 235 L390 210 M326 283 L356 332 M274 283 L244 332 M258 235 L210 210" fill="none" stroke="#07182D" stroke-width="9"/>
+    <path d="M300 149 L350 163 L390 210 L342 235 L300 205 L258 235 L210 210 L250 163Z" fill="none" stroke="#07182D" stroke-width="7"/>
+    <path d="M244 332 L274 283 L326 283 L356 332 L300 370Z" fill="none" stroke="#07182D" stroke-width="7"/>
+    <!-- Stars -->
+    <g fill="url(#gold)" stroke="#805A0A" stroke-width="2"><path d="M145 285 l8 19 20 1-16 13 5 20-17-11-17 11 5-20-16-13 20-1Z"/><path d="M455 285 l8 19 20 1-16 13 5 20-17-11-17 11 5-20-16-13 20-1Z"/><path d="M300 515 l13 30 32 2-25 21 8 31-28-17-28 17 8-31-25-21 32-2Z"/></g>
+    <!-- Main name plate -->
+    <path d="M54 365 Q300 333 546 365 L530 452 Q300 480 70 452Z" fill="#07182D" stroke="url(#gold)" stroke-width="11"/>
+    <path d="M74 382 Q300 355 526 382" fill="none" stroke="#F7D66B" stroke-width="3"/>
+    <text x="300" y="431" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="66" font-weight="900" font-style="italic" letter-spacing="1" fill="url(#silver)" stroke="#020A14" stroke-width="2" paint-order="stroke">EZZ STEEL</text>
+    <!-- Subtitle ribbon -->
+    <path d="M93 468 L507 468 L474 523 L126 523Z" fill="#07182D" stroke="url(#gold)" stroke-width="7"/>
+    <text x="300" y="504" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="800" letter-spacing="2" fill="#F5C84C">FOOTBALL CHAMPIONSHIP</text>
+    <path d="M170 548 L255 578 M430 548 L345 578" stroke="url(#gold)" stroke-width="7" stroke-linecap="round"/>
+  </g>
+</svg>

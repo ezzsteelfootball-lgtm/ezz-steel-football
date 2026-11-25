@@ -1,0 +1,342 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Statistics</title>
+    <link rel="stylesheet" href="index3.css">
+<link rel="icon"
+          type="image/svg+xml"
+          href="icon.svg">
+</head>
+<body>
+  <input type="checkbox" id="menu">
+<label for="menu" class="menu-btn">☰</label>
+    <div class="sidebar">
+        <ul>
+            <li class="logo"><img src="icon.png" alt="Logo"></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index2.html">League Standings Table</a></li>
+            <li><a href="index3.html">teams</a></li>
+            
+        </ul>
+    </div>
+
+<div class="team-container">
+
+    <div class="team-slider">
+
+        <button class="arrow" onclick="changeTeam(-1)">&#10094;</button>
+
+        <div class="team">
+            <img id="team-logo" src="ROMA1.png" alt="Team Logo">
+            <h2 id="team-name">roma</h2>
+        </div>
+
+        <button class="arrow" onclick="changeTeam(1)">&#10095;</button>
+
+    </div>
+
+   
+    <div class="statistics">
+
+        <div class="stat">
+            <h3>⚽ Goals</h3>
+            <p id="goals">3</p>
+        </div>
+
+        <div class="stat">
+            <h3>🟨 Yellow Cards</h3>
+            <p id="yellow">4</p>
+        </div>
+
+        <div class="stat">
+            <h3>🟥 Red Cards</h3>
+            <p id="red">1</p>
+        </div>
+
+    </div>
+
+    
+    
+<div class="top-scorer">
+
+    <h3>🏆 TOP SCORERS</h3>
+
+    <div id="players-list"></div>
+
+</div>
+
+
+    </div>
+
+<script>
+const teams = [
+
+    {
+        name: "TORINO",
+        logo: "TORINO.png",
+        goals: 0,
+        yellow: 0,
+        red: 0,
+        players: [
+
+        ]
+    },
+
+    {
+        name: "AC MILAN",
+        logo: "AC Milan.png",
+        goals: 2,
+        yellow: 3,
+        red: 1,
+        players: [
+            { name: "أنس أبو العالمين", goals: 1 },
+            { name: "عبدالرحمن رضا", goals: 1 },
+
+        ]
+    },
+
+    {
+        name: "ACF Fiorentina",
+        logo: "ACF Fiorentina.png",
+        goals: 3,
+        yellow: 0,
+        red: 0,
+        players: [
+
+        ]
+    },
+
+    {
+        name: "ARSENAL",
+        logo: "ARSENAL.png",
+        goals: 0,
+        yellow: 1,
+        red: 2,
+        players: [
+
+        ]
+    },
+
+    {
+        name: "ASTON VILLA",
+        logo: "ASTON VILLA.png",
+        goals: 0,
+        yellow: 0,
+        red: 0,
+        players: [
+
+        ]
+    },
+
+    {
+        name: "ATALANTA",
+        logo: "ATALANTA.png",
+        goals: 2,
+        yellow: 1,
+        red: 0,
+        players: [
+            { name: "معاذ حسني", goals: 2 },
+
+        ]
+    },
+
+    {
+        name: "BRIGHTON",
+        logo: "BRIGHTON.png",
+        goals: 3,
+        yellow: 0,
+        red: 0,
+        players: [
+ { name: "", goals: 2 },
+
+        ]
+    },
+
+    {
+        name: "CHELSEA",
+        logo: "CHELSEA.png",
+        goals: 0,
+        yellow: 0,
+        red: 0,
+        players: [
+
+        ]
+    },
+
+    {
+        name: "Inter Milan",
+        logo: "Inter Milan.png",
+        goals: 0,
+        yellow: 0,
+        red: 0,
+        players: [
+
+        ]
+    },
+
+    {
+        name: "JUDENTUS",
+        logo: "JUDENTUS.png",
+        goals: 2,
+        yellow: 0,
+        red: 0,
+        players: [
+            { name: "احمد عبد العزيز", goals: 2 },
+
+        ]
+    },
+
+    {
+        name: "LIVERPOOL",
+        logo: "LIVERPOOL.png",
+        goals: 1,
+        yellow: 1,
+        red: 0,
+        players: [
+            { name: "سيف صابر", goals: 1 },
+
+        ]
+    },
+
+    {
+        name: "Manchester City",
+        logo: "Manchester City.png",
+        goals: 2,
+        yellow: 2,
+        red: 0,
+        players: [
+            { name: "علي محمد", goals: 1 },
+            { name: "عمر رجب", goals: 1 },
+  
+        ]
+    },
+
+    {
+        name: "Manchester United",
+        logo: "Manchester United.png",
+        goals: 2,
+        yellow: 1,
+        red: 0,
+        players: [
+            { name: "مالك حسن", goals: 2 },
+            
+        ]
+    },
+
+    {
+        name: "NAPOLI",
+        logo: "NAPOLI.png",
+        goals: 1,
+        yellow: 0,
+        red: 0,
+        players: [
+            { name: "فارس نبيل", goals: 1 },
+
+        ]
+    },
+
+    // الفريق الخامس عشر
+    {
+        name: "NEWCASTLE",
+        logo: "NEWCASTLE.png",
+        goals: 1,
+        yellow: 1,
+        red: 1,
+        players: [
+            { name: "يوسف علي", goals: 1 },
+
+        ]
+    },
+
+    
+    {
+        name: "ROMA",
+        logo: "ROMA1.png",
+        goals: 0,
+        yellow: 0,
+        red: 0,
+        players: [
+
+        ]
+    },               
+{
+        name: "TOTTENHAM",
+        logo: "TOTTENHAM.png",
+        goals: 3,
+        yellow: 0,
+        red: 0,
+        players: [
+           { name: " محمد عابدين", goals: 1 },
+           { name: "معاذ حسين", goals: 1 },
+           { name: "يوسف علاء", goals: 1 },
+
+        ]
+    },
+    
+    {
+        name: "TORINO",
+        logo: "TORINO.png",
+        goals: 0,
+        yellow: 0,
+        red: 0,
+        players: [
+
+        ]
+    }
+
+];
+
+let currentTeam = 0;
+
+function changeTeam(direction) {
+
+    currentTeam += direction;
+
+    if (currentTeam >= teams.length) {
+        currentTeam = 0;
+    }
+
+    if (currentTeam < 0) {
+        currentTeam = teams.length - 1;
+    }
+
+    const team = teams[currentTeam];
+
+    document.getElementById("team-logo").src = team.logo;
+    document.getElementById("team-name").textContent = team.name;
+
+    document.getElementById("goals").textContent = team.goals;
+    document.getElementById("yellow").textContent = team.yellow;
+    document.getElementById("red").textContent = team.red;
+
+    const playersList = document.getElementById("players-list");
+
+    playersList.innerHTML = "";
+
+    team.players.forEach(player => {
+
+        playersList.innerHTML += `
+            <div class="scorer-info">
+
+                <div>
+                    <h4>${player.name}</h4>
+                    <p>Top Scorer</p>
+                </div>
+
+                <strong>${player.goals} Goals</strong>
+
+            </div>
+        `;
+
+    });
+
+}
+
+changeTeam(0);
+
+</script>
+</body>
+</html>
