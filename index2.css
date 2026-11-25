@@ -300,52 +300,78 @@ tbody tr:first-child td:first-child {
 }
 
 
-/* ===== Mobile viewport/background fix ===== */
-@media (max-width: 768px) {
-    html {
-        width: 100%;
-        overflow-x: hidden;
-    }
+/* ===== Responsive percentage layout for index2 ===== */
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+}
 
+body {
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.main-content {
+    width: 96%;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.league-table {
+    width: 100%;
+    max-width: 100%;
+    padding: clamp(8px, 1.8vw, 20px);
+}
+
+table {
+    width: 100%;
+}
+
+/* Scale spacing and headings smoothly with the screen width. */
+.main-content > h1 {
+    font-size: clamp(22px, 3.5vw, 42px);
+}
+
+.main-content > h3 {
+    font-size: clamp(10px, 1.2vw, 14px);
+    letter-spacing: clamp(1px, .35vw, 4px);
+}
+
+.group-title {
+    font-size: clamp(14px, 1.6vw, 19px);
+    padding: clamp(6px, .8vw, 8px) clamp(14px, 2.2vw, 26px);
+}
+
+/* The standings table has 10 columns; keep it readable and scroll
+   horizontally inside its own panel on narrow screens. */
+.league-table {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+table {
+    min-width: 690px;
+}
+
+@media (max-width: 768px) {
     body {
+        padding-left: 2%;
+        padding-right: 2%;
+    }
+
+    .main-content {
         width: 100%;
-        min-height: 100vh;
-        min-height: 100svh;
-        margin: 0;
-        overflow-x: hidden;
-        position: relative;
-        isolation: isolate;
-        background: var(--navy) !important;
     }
 
-    /* Keep the mobile wallpaper tied to the phone screen,
-       not stretched to the full height of the page content. */
-    body::before {
-        content: "";
-        position: fixed;
-        inset: 0;
-        z-index: -1;
-        pointer-events: none;
-        background-image:
-            linear-gradient(145deg, rgba(4,19,39,.48), rgba(7,29,56,.28)),
-            url("bam.png");
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size: cover;
-    }
-
-    .main-content,
-    .team-container,
     .league-table {
-        max-width: 100%;
+        padding: 10px 2%;
+        border-radius: 14px;
+    }
+
+    table {
+        min-width: 690px;
     }
 }
 
-/* Tables stay readable on narrow phones and scroll inside their panel. */
-@media (max-width: 768px) {
-    .league-table {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        overscroll-behavior-x: contain;
-    }
-}
